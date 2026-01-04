@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  sm9-vss:
+    build: .
+    container_name: sm9-vss-app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./configs:/app/configs:ro
+      - ./logs:/app/logs
+      - ./src:/app/src:ro
+      - ./examples:/app/examples:ro
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+
