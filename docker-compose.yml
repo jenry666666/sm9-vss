@@ -1,18 +1,22 @@
-version: '3.8'
-
 services:
   sm9-vss:
     build: .
-    container_name: sm9-vss-app
+    container_name: sm9-vss-project
+    image: sm9-vss-experiment:latest
     ports:
       - "8080:8080"
     volumes:
-      - ./configs:/app/configs:ro
-      - ./logs:/app/logs
-      - ./src:/app/src:ro
-      - ./examples:/app/examples:ro
+      - .:/app:cached
+      - ./src:/src
+      - ./configs:/configs
+      - ./data:/data
+      - ./logs:/logs
+    working_dir: /app
     environment:
       - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
       - LOG_LEVEL=INFO
+    stdin_open: true
+    tty: true
     restart: unless-stopped
-
+    command: python app.py  # 根据你的入口文件调整

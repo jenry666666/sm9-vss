@@ -1,16 +1,36 @@
-cryptography>=41.0.0
-pycryptodome>=3.18.0
-pycryptodomex>=3.18.0
-ecdsa>=0.18.0
+# 密码学库
+gmssl>=3.2.1           # 国密算法实现
+cryptography>=41.0.0    # 基础密码学原语
+pycryptodome>=3.19.0    # 补充密码学功能
+
+# 数学和计算
 numpy>=1.24.0
 scipy>=1.10.0
-matplotlib>=3.7.0
-pytest>=7.4.0
-pytest-benchmark>=4.0.0
-psutil>=5.9.0
-flake8>=6.0.0
-mypy>=1.4.0
+gmpy2>=2.1.0           # 可选，用于大整数优化
+
+# 双线性对（选择其中一个）
+# pypbc>=0.2.0          # 需要系统安装PBC库
+# charm-crypto>=0.50    # 更完整的密码学工具箱
+
+# 数据验证和序列化
+pydantic>=2.0.0
+msgpack>=1.0.0
+
+# 日志和监控
+loguru>=0.7.0
+structlog>=23.1.0
+
+# 测试和开发
+pytest>=7.3.0
+pytest-cov>=4.0.0
 black>=23.0.0
-pylint>=3.0.0
-mermaid-cli>=10.0.0
-graphviz>=0.20.0
+mypy>=1.0.0
+
+# 性能分析
+pyperf>=2.3.0
+memory-profiler>=0.60.0
+
+# 文档生成
+sphinx>=6.0.0
+sphinx-rtd-theme>=1.2.0
+flask>=2.0.0

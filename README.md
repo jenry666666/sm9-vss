@@ -241,6 +241,24 @@ docker-compose logs -f
 
 # 进入容器
 docker-compose exec sm9-vss bash
+
+# 查看容器状态
+docker ps -a | Select-String "sm9-vss"
+
+# 查看实时日志
+docker logs -f sm9-vss-app
+
+# 进入容器
+docker exec -it sm9-vss-app bash
+
+# 停止容器
+docker stop sm9-vss-app
+
+# 重启容器
+docker restart sm9-vss-app
+
+# 查看镜像
+docker images | Select-String "sm9-vss"
 ```
 
 #### Docker 配置文件说明
